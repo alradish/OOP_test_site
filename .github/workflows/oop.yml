@@ -21,6 +21,13 @@ jobs:
       
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
+
+      - name: check current pr
+        run: echo The Title of your PR is ${{ github.event.pull_request.title }}
+    
+      - name: check current pr
+        run: pwd
     
       - name: Execute Gradle build
+        run: 
         run: ./gradlew build
