@@ -8,9 +8,7 @@ on:
     branches: [ "master" ]  
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
     runs-on: ubuntu-latest
     defaults:
@@ -35,7 +33,7 @@ jobs:
         id: jacoco
         uses: madrapps/jacoco-report@v1.2
         with:
-          paths: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
+          paths: ./build/reports/jacoco/test/jacocoTestReport.xml
           token: ${{ secrets.GITHUB_TOKEN }}
           min-coverage-overall: 40
           min-coverage-changed-files: 60
