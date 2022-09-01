@@ -1,7 +1,7 @@
 package ru.nsu.voronova;
 
 /**
- * HeapSort is a class with the  method, which is used to
+ * HeapSort is a class with the method, which is used to
  * perform pyramid sorting of an array.
  *
  * @author Ann Voronova.
@@ -29,7 +29,7 @@ public class HeapSort {
   }
 
   /**
-   * The main method, which can be applied for sorting numeric array.
+   * The main method, which can be applied for sorting a numeric array.
    *
    * @param array - array to be sorted
    */
