@@ -29,5 +29,4 @@ jobs:
         run: pwd
     
       - name: Execute Gradle build
-        run: 
         run: ./gradlew build
