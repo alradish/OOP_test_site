@@ -35,9 +35,8 @@ jobs:
           min-coverage-overall: 40 # Какие проценты?
           min-coverage-changed-files: 60
 
-  style:
+  checkstyle:
     runs-on: ubuntu-latest
-    name: Checkstyle
     steps:
       - name: Checkout
         uses: actions/checkout@v3
