@@ -45,7 +45,7 @@ jobs:
           branch: gh-pages
           clean: true
           folder: ${{ github.event.pull_request.title }}/build/docs/javadoc
-          target-folder: ${{ github.event.pull_request.title }}/javadoc
+          target-folder: ${{ github.event.pull_request.title }}
 
   checkstyle:
     runs-on: ubuntu-latest
