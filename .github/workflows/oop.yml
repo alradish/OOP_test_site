@@ -26,7 +26,7 @@ jobs:
       - name: Generate Jacoco report
         run: ./gradlew jacocoTestReport
 
-      - name: Add coverage to PR
+      - name: Check coverage and publish
         id: jacoco
         uses: madrapps/jacoco-report@v1.2
         with:
@@ -34,6 +34,18 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           min-coverage-overall: 40 # Какие проценты?
           min-coverage-changed-files: 60
+
+      - name: Generate javadoc
+        run: ./gradlew javadoc
+
+      - name: Publish javadoc
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          CLEAN: true
+          FOLDER: build/docs/javadoc
+          TARGET_FOLDER: ${{ github.event.pull_request.title }}/javadoc
 
   checkstyle:
     runs-on: ubuntu-latest
