@@ -46,6 +46,23 @@ jobs:
           clean: true
           folder: ${{ github.event.pull_request.title }}/build/docs/javadoc
           target-folder: ${{ github.event.pull_request.title }}
+      
+      - name: Checkout to pages
+        uses: actions/checkout@v3
+        with: 
+          ref: 'gh-pages'
+
+      - name: Create link
+        uses: "finnp/create-file-action@master"
+        env:
+          FILE_NAME: "${{ github.event.pull_request.title }}.md"
+          FILE_DATA: "- [${{ github.event.pull_request.title }}](https://${{github.repository_owner}}.github.io/OOP/${{ github.event.pull_request.title }}.md"
+
+      - name: Compile links
+        uses: docker://pandoc/core:2.9
+        with:
+          args: >-  # allows you to break string into multiple lines
+            *.md > markdown_book.html
 
   checkstyle:
     runs-on: ubuntu-latest
