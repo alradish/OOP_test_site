@@ -47,22 +47,22 @@ jobs:
           folder: ${{ github.event.pull_request.title }}/build/docs/javadoc
           target-folder: ${{ github.event.pull_request.title }}
       
-      - name: Checkout to pages
-        uses: actions/checkout@v3
-        with: 
-          ref: 'gh-pages'
-
-      - name: Create link
-        uses: "finnp/create-file-action@master"
-        env:
-          FILE_NAME: "${{ github.event.pull_request.title }}.md"
-          FILE_DATA: "- [${{ github.event.pull_request.title }}](https://${{github.repository_owner}}.github.io/OOP/${{ github.event.pull_request.title }}.md"
-
-      - name: Compile links
-        uses: docker://pandoc/core:2.9
-        with:
-          args: >-  # allows you to break string into multiple lines
-            *.md > markdown_book.html
+#      - name: Checkout to pages
+#        uses: actions/checkout@v3
+#        with:
+#          ref: 'gh-pages'
+#
+#      - name: Create link
+#        uses: "finnp/create-file-action@master"
+#        env:
+#          FILE_NAME: "${{ github.event.pull_request.title }}.md"
+#          FILE_DATA: "- [${{ github.event.pull_request.title }}](https://${{github.repository_owner}}.github.io/OOP/${{ github.event.pull_request.title }}.md"
+#
+#      - name: Compile links
+#        uses: docker://pandoc/core:2.9
+#        with:
+#          args: >-  # allows you to break string into multiple lines
+#            *.md > markdown_book.html
 
   checkstyle:
     runs-on: ubuntu-latest
@@ -74,5 +74,6 @@ jobs:
         uses: nikitasavinov/checkstyle-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-#          reporter: 'github-pr-check'
+          checkstyle_config: '.github/google_checks.xml'
+          reporter: 'github-pr-review'
 #          tool_name: 'testtool'
