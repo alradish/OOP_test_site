@@ -10,13 +10,13 @@ import java.util.Arrays;
  */
 
 public class HeapSort {
-  /**
-   * The main method, which can be applied for sorting a numeric array.
-   *
-   * @param array - array to be sorted
-   */
-  public static void sort(int[] array) {
-    Arrays.sort(array);
-  }
+    /**
+     * The main method, which can be applied for sorting a numeric array.
+     *
+     * @param array - array to be sorted
+     */
+    public static void sort(int[] array) {
+        Arrays.sort(array);
+    }
 }
 
