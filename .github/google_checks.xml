@@ -257,7 +257,7 @@
       <property name="throwsIndent" value="4"/>
       <property name="lineWrappingIndentation" value="4"/>
       <property name="arrayInitIndent" value="4"/>
-      <property name="forceStrictCOndition" value="false"/>
+      <property name="forceStrictCondition" value="false"/>
     </module>
     <module name="AbbreviationAsWordInName">
       <property name="ignoreFinal" value="false"/>
